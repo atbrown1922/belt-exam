@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome {{user.first_name}}!</h1><a href="/logout">Logout</a></div><br>
+    <div class="float-right"> <a href="/addJob">Add a Job</a></div><br>
+    <h1>All Jobs</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Job</th>
+                <th scope="col">Location</th>
+                <th scope="col">Action</th>
+                {% for job in all_jobs %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ job.title }} </td>
+                <td>{{ job.location}}</td>
+                <td><a href="/view/{{job.id}}">View<a>| <a href="/addJob">Add</a>| <a href="/edit/{{job.id}}">Edit</a> | <a href="/cancel/{{job.id}}">Cancel</a></td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
